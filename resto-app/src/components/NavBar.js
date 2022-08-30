@@ -32,7 +32,7 @@ export default function NavBar() {
                     src="/imagen/logo.jpg"
                     alt="Logo"
                   />
-                  <h1 className='text-white m-2 text-lg mt-5'>RestoBar</h1>
+                  <h1 className='text-white m-2 text-6xl mt-5'>RestoBar</h1>
                 </div>
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden m-5">
