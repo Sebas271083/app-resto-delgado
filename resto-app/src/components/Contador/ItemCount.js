@@ -1,21 +1,30 @@
 import { useState } from 'react';
 import Contador from './Contador';
-import Boton from './Boton';
+import Boton from '../Boton/Boton';
 
 
-const ItemCount = () => {
+
+const ItemCount = ({valorInicial, stock, name}) => {
     
   const [numClic, setNumclic] = useState(0)
 
   const contadorSuma = ()=> {
+    if (numClic >= stock) {
+      console.log(numClic)
+      alert("No hay stock Suficiente")
+      return
+    }
+    console.log(valorInicial)
+    console.log(stock)
+    console.log(name)
     setNumclic(numClic + 1)
   }
 
   const contadorResta = ()=> {
-    if(numClic <= 0) {
-        alert("EL numero no puede ser menor a 0")
-        return
-    }
+    if(numClic <= 0  ) {
+        alert("EL numero no puede ser menor a 0 ")
+        return 
+    } 
     setNumclic(numClic - 1)
   }
 

@@ -1,5 +1,5 @@
-import React from 'react'
-import '../hojas-de-estilo/Contador.css'
+
+import '../../hojas-de-estilo/Contador.css'
 
 
 const Contador = ({numClic}) => {
