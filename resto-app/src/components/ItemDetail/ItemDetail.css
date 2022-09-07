@@ -1,0 +1,25 @@
+.imagen {
+    height: 150px;
+}
+
+.alto {
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow:1px 7px 9px #808079;
+    min-height: 350px;
+    height: auto;
+}
+
+.alto:hover {
+    box-shadow: 1px 7px 9px #5c3786;
+    
+}
+
+.enlaceVolver {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 5px;
+}

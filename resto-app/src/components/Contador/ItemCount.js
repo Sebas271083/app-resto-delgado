@@ -37,8 +37,8 @@ const ItemCount = ({valorInicial, stock, name}) => {
   }
   return (
     <>
-    <div class="grid justify-items-center mt-11">
-    <div className= "border-2 border-neutral-300 flex justify-center items-center w-72">
+    <div class="grid justify-items-center ">
+    <div className= "  flex justify-center items-center w-72">
         <Boton  
             texto='+'
             esBotonDeClicSuma={true}
@@ -56,11 +56,7 @@ const ItemCount = ({valorInicial, stock, name}) => {
 
     <div className='flex justify-center items-center'>
 
-    <Boton  
-        texto='Reiniciar'
-        esBotonDeClicResta={false}
-        manejarClic={reiniciarContador}
-    />
+
 
     <Boton  
         texto='Agregar al Carrito'

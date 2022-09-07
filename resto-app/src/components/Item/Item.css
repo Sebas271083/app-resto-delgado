@@ -1,0 +1,15 @@
+.imagen {
+    height: 150px;
+}
+
+.alto {
+    box-shadow:1px 7px 9px #808079;
+    min-height: 350px;
+    height: auto;
+}
+
+.alto:hover {
+    box-shadow: 1px 7px 9px #5c3786;
+    
+}
+

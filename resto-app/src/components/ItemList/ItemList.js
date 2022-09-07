@@ -4,22 +4,26 @@ const ItemList = ({ListaItem}) => {
     console.log(ListaItem)
 return (
     <>
-    <div className="flex justify-center items-center text-center">  
-    {
-        ListaItem.map((producto)=> {
-            return (
-                <Item 
-                    name = {producto.name}
-                    description = {producto.description}
-                    price = {producto.price}
-                    image = {producto.image}
-                    stock= {producto.stock}
-                />
-            )
-        })
-    }
-        
+    <div className=" flex flex-wrap justify-center items-center text-center">
+        {
+            ListaItem.map((producto)=> (
+                
+                    <div className="mb-5 mr-8">
 
+                    <Item 
+                        key={producto.id}
+                        id= {producto.id}
+                        name = {producto.title}
+                        // description = {producto.description}
+                        price = {producto.price}
+                        image = {producto.image}
+                        stock= {4}
+                    />
+                    </div>
+                )
+            )
+        }
+            
     </div>
 
     </>
