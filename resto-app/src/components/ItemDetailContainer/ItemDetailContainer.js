@@ -1,12 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from "react"
 import ItemDetail from '../ItemDetail/ItemDetail'
-import {useSearchParams} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 
 
 const ItemDetailContainer = () => {
 
-    const {categoryId} = useSearchParams()
+    const {categoryId} = useParams()
     console.log(categoryId)
 
     const [items, setItems] = useState([])
