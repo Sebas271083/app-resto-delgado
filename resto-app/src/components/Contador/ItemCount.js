@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Contador from './Contador';
 import Boton from '../Boton/Boton';
 import Swal from 'sweetalert2'
+import './sweet.css'
 
 
 
@@ -16,7 +17,7 @@ const ItemCount = ({valorInicial, stock, name}) => {
         icon: 'error',
         title: 'Oops...',
         text: 'No hay suficiente Stock!',
-        footer: '<a href="">Why do I have this issue?</a>'
+        footer: '<a href="">¿Porque tengo este problema?</a>'
       })
       return
     }
