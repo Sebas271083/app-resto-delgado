@@ -2,8 +2,8 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     font-size: 15px;
     font-family: Roboto, sans-serif;
     font-weight: bold;
@@ -31,6 +31,14 @@ button:hover {
 }
 
 .boton-reiniciar {
+    background-color: #b778ee;
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+.agregarCarrito {
     background-color: #b778ee;
     width: auto;
     padding-left: 10px;

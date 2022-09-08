@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react"
 // import data from "./mok-data"
 import ItemList from "../ItemList/ItemList"
-import {useParams} from 'react-router-dom'
+import {useLocation, useParams} from 'react-router-dom'
 
 const ItemListContainer = ({greeting}) => {
 
-  const {categoryId} = useParams()
-  console.log(categoryId)
+
+
 
   const [items, setItems] = useState([])
 

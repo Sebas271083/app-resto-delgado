@@ -1,17 +1,37 @@
+import { useLocation, useSearchParams } from "react-router-dom"
 import Item from "../Item/Item"
 
+
 const ItemList = ({ListaItem}) => {
-    console.log(ListaItem)
+
+let {search} = useLocation() 
+console.log(search)   
+let query = new URLSearchParams(search)
+console.log(query)
+
+let start = query.get("categoria")
+
+console.log("start " + start)
+
+let NuevaLista;
+
+
+if (start === null || start === "") {
+    NuevaLista = ListaItem
+} else {
+    NuevaLista = ListaItem.filter(item => item.category === start)
+}
+
 return (
     <>
     <div className=" flex flex-wrap justify-center items-center text-center">
         {
-            ListaItem.map((producto)=> (
+             
+             NuevaLista.map((producto)=> (
                 
                     <div className="mb-5 mr-8">
 
                     <Item 
-                        key={producto.id}
                         id= {producto.id}
                         name = {producto.title}
                         // description = {producto.description}

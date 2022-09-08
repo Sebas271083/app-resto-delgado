@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Contador from './Contador';
 import Boton from '../Boton/Boton';
+import Swal from 'sweetalert2'
 
 
 
@@ -11,7 +12,12 @@ const ItemCount = ({valorInicial, stock, name}) => {
   const contadorSuma = ()=> {
     if (numClic >= stock) {
       console.log(numClic)
-      alert("No hay stock Suficiente")
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No hay suficiente Stock!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
       return
     }
     console.log(valorInicial)
@@ -60,7 +66,7 @@ const ItemCount = ({valorInicial, stock, name}) => {
 
     <Boton  
         texto='Agregar al Carrito'
-        esBotonDeClicResta={false}
+        esBotonAgregar={true}
         manejarClic={agregarCarrito}
     />
 
