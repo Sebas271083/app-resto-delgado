@@ -1,4 +1,3 @@
-import './App.css';
 import ItemListContainer from './components/ItemLisContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import Inicio from './components/Inicio/Inicio';
