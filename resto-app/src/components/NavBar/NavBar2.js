@@ -1,5 +1,5 @@
 import CartWidget from '../CartWidget/CartWidget'
-import {NavLink, useLocation, useSearchParams} from 'react-router-dom'
+import {NavLink, useSearchParams} from 'react-router-dom'
 import "./NavBar.css"
 
 
@@ -29,7 +29,9 @@ const NavBar2 = () => {
         src="/imagen/logo.jpg"
         alt="Logo"
     />
-        <div className='bg-white flex justify-end'> <CartWidget /></div>
+        <div className='bg-white flex justify-end'>
+           <CartWidget />
+        </div>
 
 
         <ul className='text-white flex justify-evenly p-2 ml-4' >

@@ -1,9 +1,28 @@
 
+import { useState,useEffect } from "react"
 import ItemCount from "../Contador/ItemCount"
 import './Item.css'
 
 const Item = ({id, name, description, price, image, stock}) => {
 
+  const nuevaCompra = {
+    name, 
+    price, 
+    image
+  }
+
+  const [compra, setCompra] = useState([])
+
+  const agregarCarrito = () => {
+    console.log('compra')
+    setCompra([nuevaCompra, ...compra])
+    console.log(compra)
+
+  }
+
+  useEffect(() => {
+    agregarCarrito()
+},[])
 
   return (
 
@@ -16,13 +35,13 @@ const Item = ({id, name, description, price, image, stock}) => {
           <div className="">
             <p className="font-bold text-lg mt-5" >$ {price}</p>
           </div>
-        
         </div>
     </a>
+ 
     <ItemCount 
             valorInicial = {0}
             stock = {stock}
-            name = {name}
+            agregarCarrito = {agregarCarrito}
         />
     </>
   )

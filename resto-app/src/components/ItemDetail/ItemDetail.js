@@ -8,7 +8,7 @@ const ItemDetail = ({item, stock}) => {
   return (
     
     <>
-          <a className="enlaceVolver" href="/productos">Volver</a>
+      <a className="enlaceVolver" href="/productos">Volver</a>
 
       <div className="border p-5 w-80 mr-8 ml-8 mb-4 justify-center items-center text-center alto rounded-xl" style={{}} > 
 

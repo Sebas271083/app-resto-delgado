@@ -1,8 +1,11 @@
+import { useState } from "react"
 import { useLocation, useSearchParams } from "react-router-dom"
 import Item from "../Item/Item"
 
 
 const ItemList = ({ListaItem}) => {
+
+
 
 let {search} = useLocation() 
 console.log(search)   
@@ -22,6 +25,9 @@ if (start === null || start === "") {
     NuevaLista = ListaItem.filter(item => item.category === start)
 }
 
+
+
+
 return (
     <>
     <div className=" flex flex-wrap justify-center items-center text-center">
@@ -29,9 +35,10 @@ return (
              
              NuevaLista.map((producto)=> (
                 
-                    <div className="mb-5 mr-8">
+                    <div className="mb-5 mr-8 bg-gray-100 p-2 rounded-md">
 
                     <Item 
+                        key={producto.id}
                         id= {producto.id}
                         name = {producto.title}
                         // description = {producto.description}
