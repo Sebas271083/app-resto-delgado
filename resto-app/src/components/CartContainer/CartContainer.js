@@ -11,8 +11,8 @@ const CartContainer = () => {
   return (
     <div>
         <h1 className='text-center text-4xl mb-10 mt-10 font-bold'>Tu Carrito</h1>
-        <button className='bg-red-600 w-64 ml-auto' onClick={clear}>Vaciar Carrito</button>
-        <div className=''>
+        <button className='bg-red-600 w-64 ml-auto mr-4' onClick={clear}>Vaciar Carrito</button>
+        <div className='bg-gray-200 mr-4 ml-4'>
             {productCartList.map(item => (
               <>
                 <div className='flex items-center m-4'>
