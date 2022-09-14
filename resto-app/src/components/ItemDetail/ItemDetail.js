@@ -1,13 +1,27 @@
 import ItemCount from "../Contador/ItemCount"
+import { useContext, useState } from "react"
 import './ItemDetail.css'
-
+import { CartContext } from "../../context/CartContext"
 
 const ItemDetail = ({item, stock}) => {
-    console.log(item.title)
+  
+    const {addItem, isInCart} = useContext(CartContext);
+    const [contador, setContador] = useState(0);
 
-  return (
-    
-    <>
+
+    const agregarCarrito = (dato) => {
+      console.log("HizoClick", dato)
+      setContador(dato)
+      addItem(item, dato)
+    }
+
+    console.log(item.title);
+
+  return (  
+ 
+ 
+ 
+ <>
       <a className="enlaceVolver" href="/productos">Volver</a>
 
       <div className="border p-5 w-80 mr-8 ml-8 mb-4 justify-center items-center text-center alto rounded-xl" style={{}} > 
@@ -24,6 +38,7 @@ const ItemDetail = ({item, stock}) => {
           valorInicial = {0}
           stock = {stock}
           name = {item.title}
+          agregarCarrito = {agregarCarrito}
       />
     </>
   )

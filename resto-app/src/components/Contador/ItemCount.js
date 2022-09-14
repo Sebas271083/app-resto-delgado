@@ -6,7 +6,7 @@ import './sweet.css'
 
 
 
-const ItemCount = ({valorInicial, stock, agregarCarrito, nuevaCompra }) => {
+const ItemCount = ({valorInicial, stock, agregarCarrito }) => {
 
   const [numClic, setNumclic] = useState(1)
   console.log("numclic", numClic)
@@ -71,12 +71,10 @@ const ItemCount = ({valorInicial, stock, agregarCarrito, nuevaCompra }) => {
 
     <div className='flex justify-center items-center'>
 
-
-
     <Boton  
         texto='Agregar al Carrito'
         esBotonAgregar={true}
-        manejarClic={agregarCarrito }
+        manejarClic={() => agregarCarrito(numClic)}
     />
 
     </div>

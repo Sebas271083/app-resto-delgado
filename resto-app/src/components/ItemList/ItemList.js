@@ -26,8 +26,6 @@ if (start === null || start === "") {
 }
 
 
-
-
 return (
     <>
     <div className=" flex flex-wrap justify-center items-center text-center">
@@ -37,15 +35,16 @@ return (
                 
                     <div className="mb-5 mr-8 bg-gray-100 p-2 rounded-md">
 
-                    <Item 
-                        key={producto.id}
-                        id= {producto.id}
-                        name = {producto.title}
-                        // description = {producto.description}
-                        price = {producto.price}
-                        image = {producto.image}
-                        stock= {4}
-                    />
+                        <Item        
+                            key={producto.id}
+                            id= {producto.id}
+                            title = {producto.title}
+                            description = {producto.description}
+                            // description = {producto.description}
+                            price = {producto.price}
+                            image = {producto.image}
+                            stock= {4}
+                        />
                     </div>
                 )
             )

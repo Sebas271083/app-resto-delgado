@@ -6,6 +6,8 @@ import NavBar2 from './components/NavBar/NavBar2';
 import ContactoPage from './components/ContactoPage/ContactoPage';
 import Nosotros from './components/Nosotros/Nosotros';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { CartProvider } from './context/CartContext';
+import CartContainer from './components/CartContainer/CartContainer';
 
 
 
@@ -13,22 +15,21 @@ function App() {
 
   
   return (
-    <BrowserRouter>
-      <div className="">
-        <NavBar2 />
-        <Routes>
-          <Route path="/" element={<Inicio />} />
-          <Route path='/productos' element={<ItemListContainer />} />
-          <Route path="/productos/:categoryId" element={<ItemDetailContainer />} />
-          <Route path="/nosotros" element={<Nosotros />} />
-          <Route path="/contacto" element={<ContactoPage />} />
-        </Routes>
-{/* 
-          <ItemListContainer 
-              greeting = "Nuestros Productos"
-          /> */}
-      </div>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+        <div className="">
+          <NavBar2 />
+          <Routes>
+            <Route path="/" element={<Inicio />} />
+            <Route path='/productos' element={<ItemListContainer />} />
+            <Route path="/productos/:categoryId" element={<ItemDetailContainer />} />
+            <Route path="/nosotros" element={<Nosotros />} />
+            <Route path="/contacto" element={<ContactoPage />} />
+            <Route path='/cart' element={<CartContainer />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 
