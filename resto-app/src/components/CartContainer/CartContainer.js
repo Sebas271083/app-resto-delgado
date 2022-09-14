@@ -6,6 +6,8 @@ import { Link } from "react-router-dom"
 
 const CartContainer = () => {
     const {productCartList, removeItem, clear} = useContext(CartContext)
+
+
   return (
     <div>
         <h1 className='text-center text-4xl mb-10 mt-10 font-bold'>Tu Carrito</h1>
