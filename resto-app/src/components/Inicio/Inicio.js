@@ -23,7 +23,7 @@ const Inicio = () => {
             <SwiperSlide>
                 <img
                     className="object-fill w-full h-96"
-                    src="../imagen/carousel3.jpg"
+                    src="../../imagen/carousel3.jpg"
                     alt="imageslide1"
                 />
             </SwiperSlide>
