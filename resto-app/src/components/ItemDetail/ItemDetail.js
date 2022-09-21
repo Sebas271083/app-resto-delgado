@@ -2,6 +2,7 @@ import ItemCount from "../Contador/ItemCount"
 import { useContext, useState } from "react"
 import './ItemDetail.css'
 import { CartContext } from "../../context/CartContext"
+import { Link } from "react-router-dom"
 
 const ItemDetail = ({item, stock}) => {
   
@@ -22,7 +23,7 @@ const ItemDetail = ({item, stock}) => {
  
  
  <>
-      <a className="enlaceVolver" href="/productos">Volver</a>
+      <Link className="enlaceVolver" to={"/productos"}>Volver</Link>
 
       <div className="border p-5 w-80 mr-8 ml-8 mb-4 justify-center items-center text-center alto rounded-xl" style={{}} > 
 

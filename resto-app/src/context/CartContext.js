@@ -38,6 +38,7 @@ export const CartProvider = ({children}) => {
     }
 
 
+
     const removeItem = (itemId) => {
         console.log(itemId)
         const newArreglo = productCartList.filter(product => product.id !== itemId);
@@ -54,13 +55,43 @@ export const CartProvider = ({children}) => {
             console.log(newArray)
         }
     
+    // const totalCart = () => {
+    //     const total = productCartList.length
+    //     console.log(productCartList)
+    //     return total
+    // }
+
     const totalCart = () => {
-        const total = productCartList.length
-        return total
+        if(!productCartList.length) {
+            const sinProductos = "No hay productos agregados al carrito"
+           return sinProductos
+        } else {
+            const total = productCartList.reduce((acc, prod) => acc + prod.quantity, 0);
+            console.log(total)
+            return total
+        }
+
+      };
+
+      const totalPrecio = () => {
+        if(!productCartList.length) {
+           return 
+        } else {
+            const total = productCartList.reduce((acc, prod) => acc + prod.quantity * prod.price, 0);
+            console.log("total", total)
+            return total.toFixed(2)
+        }
+
+      };
+
+
+    const restarCantidad = () => {
+        
     }
 
+
     return(
-        <CartContext.Provider value={{productCartList, addItem, removeItem, clear, isInCart, totalCart}}>
+        <CartContext.Provider value={{productCartList, addItem, removeItem, clear, isInCart, totalCart, totalPrecio}}>
             {children}
         </CartContext.Provider>
     )
