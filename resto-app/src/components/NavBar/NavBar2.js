@@ -1,5 +1,5 @@
 import CartWidget from '../CartWidget/CartWidget'
-import {NavLink, useSearchParams} from 'react-router-dom'
+import {Link, NavLink, useSearchParams} from 'react-router-dom'
 import "./NavBar.css"
 
 
@@ -23,7 +23,7 @@ const NavBar2 = () => {
 
   return (
     <div className='bg-gray-700'>
-        <h1 className='text-center text-white text-3xl mt-5 bg-gray-900 '>Style Store</h1>
+        <h1 className='text-center text-white text-3xl mt-5 bg-gray-900 '><Link to={`/`}>Style Store </Link></h1>
         <img
         className="hidden lg:block h-8 ml-3 mb-3 w-auto rounded-full"
         src="/imagen/logo.jpg"

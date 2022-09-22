@@ -52,9 +52,11 @@ const CartContainer = () => {
                       Total a pagar: <span className='font-bold'>$ {totalAPagar}</span>
                   </td>
                 </tr>
+                <td>
+                {cantidadCarrito !== "No hay productos agregados al carrito" ?  <button className='w-full text-blue-400 bg-blue-100 px-20'>Terminar Compra</button> : "" }
+                </td>
               </tbody>
               
-              {cantidadCarrito !== "No hay productos agregados al carrito" ?  <button className='text-blue-400 bg-blue-100 px-20'>Terminar Compra</button> : "" }
             </table>
           </div>
           </div>

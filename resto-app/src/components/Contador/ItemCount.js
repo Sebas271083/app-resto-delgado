@@ -37,7 +37,13 @@ const ItemCount = ({valorInicial, stock, agregarCarrito }) => {
 
   const contadorResta = ()=> {
     if(numClic <= 0  ) {
-        alert("EL numero no puede ser menor a 0 ")
+        
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El numero no puede ser menor de 0!',
+        footer: '<a href="">¿Porque tengo este problema?</a>'
+      })
         return 
     } 
     setNumclic(numClic - 1)
@@ -54,18 +60,20 @@ const ItemCount = ({valorInicial, stock, agregarCarrito }) => {
     <div class="grid justify-items-center ">
       <p>Stock Disponible: {stock}</p>
     <div className= "  flex justify-center items-center w-72">
-        <Boton  
-            texto='+'
-            esBotonDeClicSuma={true}
-            manejarClic={contadorSuma}
-        />
-        <Contador 
-            numClic= {numClic} />
+
         <Boton  
             texto='-'
             esBotonDeClicResta={true}
             manejarClic={contadorResta}
         />
+        <Contador 
+            numClic= {numClic} />
+        <Boton  
+            texto='+'
+            esBotonDeClicSuma={true}
+            manejarClic={contadorSuma}
+        />
+
 
     </div>
 
