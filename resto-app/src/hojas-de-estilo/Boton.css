@@ -45,3 +45,10 @@ button:hover {
     padding-right: 10px;
     text-align: center;
 }
+
+.vacio {
+    background-color: #fff;
+}
+.vacio:hover {
+    background-color: #fff;
+}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import Contador from './Contador';
 import Boton from '../Boton/Boton';
 import Swal from 'sweetalert2'
@@ -6,12 +6,10 @@ import './sweet.css'
 
 
 
-const ItemCount = ({valorInicial, stock, agregarCarrito }) => {
+const ItemCount = ({valorInicial, stock, agregarCarrito,}) => {
 
   const [numClic, setNumclic] = useState(1)
   console.log("numclic", numClic)
-
-
 
   const contadorSuma = ()=> {
     if (numClic >= stock) {
@@ -25,19 +23,15 @@ const ItemCount = ({valorInicial, stock, agregarCarrito }) => {
       return
     }
 
-
     console.log(valorInicial)
     console.log(stock)
 
-
     setNumclic(numClic + 1)
     console.log("num", numClic)
-
   }
 
   const contadorResta = ()=> {
-    if(numClic <= 0  ) {
-        
+    if(numClic <= 0  ) {       
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -48,11 +42,6 @@ const ItemCount = ({valorInicial, stock, agregarCarrito }) => {
     } 
     setNumclic(numClic - 1)
   }
-
-  const reiniciarContador = () => {
-    setNumclic(0)
-  }
-
 
 
   return (
@@ -67,7 +56,9 @@ const ItemCount = ({valorInicial, stock, agregarCarrito }) => {
             manejarClic={contadorResta}
         />
         <Contador 
-            numClic= {numClic} />
+            numClic= {numClic} 
+        />
+        
         <Boton  
             texto='+'
             esBotonDeClicSuma={true}
@@ -80,9 +71,9 @@ const ItemCount = ({valorInicial, stock, agregarCarrito }) => {
     <div className='flex justify-center items-center'>
 
     <Boton  
-        texto='Agregar al Carrito'
+        texto= { 'Agregar al Carrito' }
         esBotonAgregar={true}
-        manejarClic={() => agregarCarrito(numClic)}
+        manejarClic={ () => agregarCarrito(numClic) }
     />
 
     </div>

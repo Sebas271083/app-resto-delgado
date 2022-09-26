@@ -2,18 +2,15 @@ import { useState, useEffect } from "react"
 // import data from "./mok-data"
 import ItemList from "../ItemList/ItemList"
 import { db } from "../../utils/firabase"
-import {doc, getDoc, collection, getDocs} from "firebase/firestore"
+import {collection, getDocs} from "firebase/firestore"
 
-import { Firestore } from "firebase/firestore"
-import { async } from "@firebase/util"
+
 
 const ItemListContainer = ({greeting}) => {
 
   const [items, setItems] = useState([])
 
     // const url = "https://fakestoreapi.com/products"
-    const url = db
-
 
     // const getData = () => {
     //   fetch(url)
@@ -33,13 +30,13 @@ const ItemListContainer = ({greeting}) => {
         const productos = response.docs.map(doc => {
           const newProduct = {
           ...doc.data(),
-          id: doc.id
+          id: doc.id,
+          key:doc.id
           }
           return newProduct
         })
         console.log(productos)
         setItems(productos)
-
         }
 
     useEffect(() => {

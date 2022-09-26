@@ -4,7 +4,7 @@ const Boton = ({ texto, esBotonDeClicSuma, esBotonDeClicResta, manejarClic, esBo
   return (
     <button 
         className={ esBotonDeClicSuma ? 'boton-clic-sumar' : esBotonDeClicResta ? 'boton-clic-restar' : esBotonAgregar ? 'agregarCarrito' : '' } 
-        onClick={manejarClic}>
+        onClick={manejarClic} style={{width: "auto"}} >
         {texto}
     </button>
   )

@@ -15,9 +15,15 @@ const ItemDetail = ({item, stock}) => {
       setContador(dato)
       addItem(item, dato)
     }
+    console.log(item.title);
 
     console.log(item.title);
 
+
+    const finalizarCompra = ()=> {
+      console.log("Finalizar")
+    }
+    
   return (  
  
  
@@ -35,12 +41,20 @@ const ItemDetail = ({item, stock}) => {
           </div>
       </div>
 
+      {contador === 0 ?
       <ItemCount 
+
+          contador = {contador}
           valorInicial = {0}
           stock = {stock}
           name = {item.title}
-          agregarCarrito = {agregarCarrito}
+          agregarCarrito =  {contador === 0 ? agregarCarrito : ""}
       />
+
+    : <Link to={'/cart'} style={{display:"flex", justifyContent:"center", alignItems:"center", padding:"5px", backgroundColor:"blueviolet", color:"white", fontSize:"30px"}}> Finalizar Compra</Link>}
+
+
+
     </>
   )
 }
