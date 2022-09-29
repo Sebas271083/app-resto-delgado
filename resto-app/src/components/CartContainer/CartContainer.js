@@ -1,18 +1,74 @@
-import React, {useContext, useEffect, useState} from 'react'
-import { CartContext } from '../../context/CartContext'
-import { Link } from "react-router-dom"
+import React, {useContext, useEffect, useState} from 'react';
+import { CartContext } from '../../context/CartContext';
+import { Link } from "react-router-dom";
+import {db} from "../../utils/firabase";
+import { collection, addDoc, updateDoc } from "firebase/firestore";
 
 
 
 const CartContainer = () => {
     const {productCartList, removeItem, clear, totalCart, totalPrecio} = useContext(CartContext)
+    const [idOrder, setIdOrder] = useState("")
     const cantidadCarrito = totalCart()
     const totalAPagar = totalPrecio()
     console.log(totalAPagar)
     console.log(cantidadCarrito)
 
+
+
+
+  const sendOrder = (e)=> {
+    e.preventDefault()
+    console.log("enviando")
+
+    const order = {
+      buyer:{
+        name:e.target[0].value,
+        phone:e.target[1].value,
+        email:e.target[2].value
+      },
+      items: productCartList,
+      total: totalPrecio()
+    }
+    console.log(order)  
+    //Crear la referencia donde se va a guardar el documento
+    const queryRef = collection(db, "orders")
+    //Crear el documento
+    addDoc(queryRef, order).then(response => {
+      setIdOrder(response.id)
+    })
+  }
+
+  const updateOrder = () => {
+    //Creamos la referencia
+    const queryRef = doc(db, "orders", "")
+
+    //Actualizar el documento
+    updateDoc(queryRef, {
+      buyer: {
+        name: "",
+        phone:"",
+        email:""
+      },
+      items:[
+        {
+          category:"",
+          description:"",
+          id:"",
+          image:"",
+          price:"",
+          quantity:"",
+          title:""
+
+        }
+      ]
+    })
+  }
+
   return (
     <div>
+        <button onClick={updateOrder}>actualizar orden</button>
+        {idOrder && <p>Su orden fue creada, id {idOrder}</p>}
         <h1 className='text-center text-4xl mb-10 mt-10 font-bold'>Tu Carrito</h1>
         {cantidadCarrito === "No hay productos agregados al carrito" ? <div className='flex justify-center text-center'><p className='ml-4'>{cantidadCarrito} <Link to={`/productos`}><p> <span className='font-bold mt-2 text-lg'>Volver</span> a los productos </p></Link></p></div> : ""}
         <button className='bg-red-600 w-64 ml-auto mr-4' onClick={clear}>Vaciar Carrito</button>
@@ -56,10 +112,24 @@ const CartContainer = () => {
                 {cantidadCarrito !== "No hay productos agregados al carrito" ?  <button className='w-full text-blue-400 bg-blue-100 px-20'>Terminar Compra</button> : "" }
                 </td>
               </tbody>
-              
             </table>
           </div>
           </div>
+          <form className='mt-8 max-w-2xl ml-8' onSubmit={sendOrder} >
+                <div className="mb-6">
+                  <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Nombre: </label>
+                  <input type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nombre"/>
+                </div>
+                <div className="mb-6">
+                  <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Telefono</label>
+                  <input type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Telefono"/>
+                </div>
+                <div className="mb-6">
+                <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Correo</label>
+                <input type="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email"/>
+                </div>
+                <button type='submit' className='bg-gray-600 w-full'>Enviar Orden</button>
+              </form>
         </div>
   )
 }

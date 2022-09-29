@@ -52,9 +52,6 @@ const ItemDetail = ({item, stock}) => {
       />
 
     : <Link to={'/cart'} style={{display:"flex", justifyContent:"center", alignItems:"center", padding:"5px", backgroundColor:"blueviolet", color:"white", fontSize:"30px"}}> Finalizar Compra</Link>}
-
-
-
     </>
   )
 }
