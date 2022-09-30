@@ -131,20 +131,20 @@ const CartContainer = () => {
         
         </div>
         <div className='flex justify-center mb-8'>
-            <table className='text-sm text-center text-gray-500 dark:text-gray-400 mt-8 p-8 mr-2'>
+            <table className='text-sm text-center text-gray-500 dark:text-gray-400 mt-8 p-8 mr-2 border'>
               <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
-                <tr>
+                <tr className='border'>
                   <th scope="col" class="py-3 px-6">Cantidad De Productos</th>
                   <th scope="col" class="py-3 px-6">Precio Total a Pagar</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className='border'>
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                  <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    El total de productos es: <span className='font-bold'>{cantidadCarrito}</span>
+                  <th scope="row" className="border py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                     <span className='font-bold'>{cantidadCarrito}</span>
                   </th>
                   <td class="py-4 px-6">
-                      Total a pagar: <span className='font-bold'>$ {totalAPagar}</span>
+                       <span className='font-bold'>$ {totalAPagar}</span>
                   </td>
                 </tr>
          
