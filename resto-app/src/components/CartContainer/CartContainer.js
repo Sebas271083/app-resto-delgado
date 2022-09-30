@@ -18,8 +18,6 @@ const CartContainer = () => {
     console.log(cantidadCarrito)
 
 
-
-
   const sendOrder = (e)=> {
     e.preventDefault()
     console.log("enviando")
@@ -112,21 +110,52 @@ const CartContainer = () => {
         {!idOrder &&
         <div className='md:flex sm:flex'>
         <div className=' bg-gray-200 mr-4 ml-4'>
+        
+        <table className='text-sm text-center text-gray-500 dark:text-gray-400 mt-8 p-8 mr-2 border'>
+                  <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400'>
+                  <tr className='border'>
+                  <th scope="col" class="py-3 px-6">Nombre del Producto</th>
+                  <th scope="col" class="py-3 px-6">Imagen del Producto</th>
+                  <th scope="col" class="py-3 px-6">Precio Unitario</th>
+                  <th scope="col" class="py-3 px-6">Cantidad</th>
+                  <th scope="col" class="py-3 px-6">Precio Total</th>
+                  <th scope="col" class="py-3 px-6">Eliminar Producto</th>
+                </tr>
+                </thead>
+           
+           
+       
             {productCartList.map(item => (
               <>
-                <div className='sm:flex items-center m-4'>
-                  <Link to={`/productos/${item.id}`}>
+                  <tbody>
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                  <th scope="row" className=" py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                     <Link to={`/productos/${item.id}`}>
                     <h3 className='font-bold mb-3' style={{maxWidth: "250px"}}>{item.title}</h3>
-                  </Link>  
-                      <img className='mb-3 m-4 flex justify-center items-center' src={item.image} style={{width:"5%"}} alt="imagen"/>
-                      <p className='mb-2 m-4' style={{maxWidth: "80px"}}>Precio: $ {item.price}</p>
-                      <p>cantidad: {item.quantity} </p>
-                      <button style={{backgroundColor:"green", width:"4px", height:"2px",borderRadius:"5px", margin:"3px", marginLeft:"20px"}}>+</button>
-                      <button style={{backgroundColor:"brown", width:"4px", height:"2px",borderRadius:"5px", margin:"3px", marginLeft:"20px"}}>-</button>
-                      <button className='mb-6 m-4' style={{backgroundColor:"red", width:"100px", borderRadius:"10px"}} onClick={() => removeItem(item.id)}>Elimnar Registro</button>
+                  </Link>
+                  </th>
+                  <td class="py-4 px-6">
+                  <img className='mb-3 m-4 flex justify-center items-center ml-auto mr-auto' src={item.image} style={{width:"10%"}} alt="imagen"/>
+                  </td>
+                  <td class="py-4 px-6">
+                  <p className='mb-2 m-4' style={{maxWidth: "80px"}}>Precio unitario: <span className='font-bold'>$ {item.price}</span></p>
+                  </td>
+                  <td class="py-4 px-6">
+                  <p>cantidad: {item.quantity} </p>
+                  </td>
+                  <td class="py-4 px-6">
+                  <p className='mb-2 m-4' style={{maxWidth: "80px"}}>Precio total: <span className='font-bold'> $ {item.price * item.quantity} </span></p>
+                  </td>
+                  <td class="py-4 px-6">
+                  <button className='mb-6 m-4' style={{backgroundColor:"red", width:"100px", borderRadius:"10px"}} onClick={() => removeItem(item.id)}>Elimnar Registro</button>
+                  </td>
+                </tr>
+                <div className='sm:flex items-center justify-center m-4'>  
                 </div>
-              </>
+                </tbody>
+              </>              
 ))}
+</table> 
         
         
         </div>
@@ -169,7 +198,7 @@ const CartContainer = () => {
                 <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Correo</label>
                 <input type="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" required/>
                 </div>
-                <button type='submit' className='bg-gray-600 w-full'>Enviar Orden</button>
+                <button type='submit' className='bg-gray-600 w-full rounded-xl'>Enviar Orden</button>
               </form> 
               </div> }
               </>

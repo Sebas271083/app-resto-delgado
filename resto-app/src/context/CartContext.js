@@ -72,6 +72,10 @@ export const CartProvider = ({children}) => {
 
       };
 
+
+
+
+
       const totalPrecio = () => {
         if(!productCartList.length) {
            return 
