@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Contador from '../components/Contador/Contador';
 
 export const CartContext = React.createContext(); 
 
@@ -84,10 +83,6 @@ export const CartProvider = ({children}) => {
 
       };
 
-
-    const restarCantidad = () => {
-        
-    }
 
 
     return(

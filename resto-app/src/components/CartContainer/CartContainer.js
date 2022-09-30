@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import { CartContext } from '../../context/CartContext';
 import { Link } from "react-router-dom";
 import {db} from "../../utils/firabase";
@@ -43,7 +43,7 @@ const CartContainer = () => {
       addDoc(queryRef, order).then(response => {
   
         setName(order.buyer.name)
-        setEmail(order.buyer.name)
+        setEmail(order.buyer.email)
         setIdOrder(response.id)
         setProductCartList([])
         setSpinner(false)
