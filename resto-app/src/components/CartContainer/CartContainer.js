@@ -154,22 +154,26 @@ const CartContainer = () => {
             </table>
           </div>
           </div> }
+          {cantidadCarrito === "No hay productos agregados al carrito" ? <div className='flex justify-center text-center'></div> :
+          <>
           {!idOrder &&
           <form className='mt-8 max-w-2xl ml-8' onSubmit={sendOrder} >
                 <div className="mb-6">
                   <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Nombre: </label>
-                  <input type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nombre"/>
+                  <input type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nombre" required/>
                 </div>
                 <div className="mb-6">
                   <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Telefono</label>
-                  <input type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Telefono"/>
+                  <input type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Telefono" required/>
                 </div>
                 <div className="mb-6">
                 <label className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Correo</label>
-                <input type="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email"/>
+                <input type="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email" required/>
                 </div>
                 <button type='submit' className='bg-gray-600 w-full'>Enviar Orden</button>
               </form> }
+              </>
+          }
         </div> 
    
       
