@@ -8,6 +8,7 @@ import Nosotros from './components/Nosotros/Nosotros';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { CartProvider } from './context/CartContext';
 import CartContainer from './components/CartContainer/CartContainer';
+import Footer from './components/Footer/Footer';
 
 
 
@@ -27,6 +28,7 @@ function App() {
             <Route path="/contacto" element={<ContactoPage />} />
             <Route path='/cart' element={<CartContainer />} />
           </Routes>
+          <Footer />
         </div>
       </BrowserRouter>
     </CartProvider>
