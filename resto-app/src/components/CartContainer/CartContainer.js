@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 import { CartContext } from '../../context/CartContext';
 import { Link } from "react-router-dom";
 import {db} from "../../utils/firabase";
-import { collection, addDoc, updateDoc } from "firebase/firestore";
+import { collection, addDoc, updateDoc, doc } from "firebase/firestore";
 
 
 
