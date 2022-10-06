@@ -129,7 +129,6 @@ const CartContainer = () => {
        
             {productCartList.map(item => (
               <>
-                  key={item.id}
                   <tbody>
                   <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                   <th scope="row" className=" py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -184,7 +183,7 @@ const CartContainer = () => {
             </table>
           </div>
           </div> }
-          {cantidadCarrito ? <div className='flex justify-center text-center'></div> :
+          {cantidadCarrito === "No hay productos agregados al carrito" ? <div className='flex justify-center text-center'></div> :
           <>
           {!idOrder &&
           <div className='flex w-full justify-center'>
