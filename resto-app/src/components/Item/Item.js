@@ -11,6 +11,7 @@ const Item = ({id, title, description, price, image, stock}) => {
   
   const {addItem} = useContext(CartContext);
   const [contador, setContador] = useState(0);
+  const [agregado, setAgregado] = useState(false)
 
       const agregarCarrito = (dato) => {
 
@@ -22,7 +23,7 @@ const Item = ({id, title, description, price, image, stock}) => {
         image, 
         price
       }
-
+      setAgregado(true)
       console.log(item)
       addItem(item, dato)
       console.log("agrega " + title, description, image)
@@ -41,12 +42,23 @@ const Item = ({id, title, description, price, image, stock}) => {
           </div>
         </div>
     </Link>
- 
-    <ItemCount 
-            valorInicial = {0}
-            stock = {stock}
-            agregarCarrito = {agregarCarrito}
-        />
+    
+
+    {contador === 0 ?
+      <ItemCount 
+
+          contador = {contador}
+          valorInicial = {0}
+          stock = {stock}
+          agregarCarrito =  {contador === 0 ? agregarCarrito : ""}
+      />
+
+    : <Link to={'/cart'} style={{display:"flex", justifyContent:"center", alignItems:"center", padding:"5px", backgroundColor:"blueviolet", color:"white", fontSize:"30px"}}> Finalizar Compra</Link>}
+
+
+
+
+
     </>
   )
 }

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-// import data from "./mok-data"
 import ItemList from "../ItemList/ItemList"
 import { db } from "../../utils/firabase"
 import {collection, getDocs} from "firebase/firestore"
@@ -10,16 +9,6 @@ const ItemListContainer = ({greeting}) => {
 
   const [items, setItems] = useState([])
 
-    // const url = "https://fakestoreapi.com/products"
-
-    // const getData = () => {
-    //   fetch(url)
-    //       .then((response) => response.json())
-    //       .then((result) => {
-    //           console.log(result) 
-    //           setItems(result) 
-    //       })
-    //   }
 
       const getData = async () => {
         //Crear la referencia
